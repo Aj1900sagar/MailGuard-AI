@@ -1,0 +1,11 @@
+
+Flask
+flask-cors
+gunicorn
+joblib
+scikit-learn==1.6.1
+numpy
+scipy
+torch
+transformers
+safetensors

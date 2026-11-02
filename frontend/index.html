@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f7fb" />
+  <meta name="description" content="MailGuard AI intelligently analyzes emails to help identify spam using machine learning." />
+
+  <title>MailGuard AI — Email Intelligence</title>
+
+  <!-- Custom favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/script.js" defer></script>
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <a href="#home" class="brand" aria-label="MailGuard AI home">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 3.5 33 8v10.1c0 8.2-5.4 14.1-13 18.4C12.4 32.2 7 26.3 7 18.1V8L20 3.5Z" fill="currentColor" opacity=".17"/>
+          <path d="M20 3.5 33 8v10.1c0 8.2-5.4 14.1-13 18.4C12.4 32.2 7 26.3 7 18.1V8L20 3.5Z" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="m12.5 15 7.5 6 7.5-6M13 25V15h14v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">MailGuard<span> AI</span></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#analyzer" class="nav-link">Analyzer</a>
+      <a href="#how-it-works" class="nav-link">How it works</a>
+      <a href="#about" class="nav-link">About me</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <a href="#analyzer" class="nav-cta">
+      Try the analyzer <span>↗</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          MACHINE LEARNING · EMAIL SECURITY
+        </div>
+
+        <h1>
+          Your inbox,<br />
+          <span class="gradient-text">a little smarter.</span>
+        </h1>
+
+        <p class="hero-description">
+          Suspicious emails deserve a second look. Analyze an email with
+          machine learning and get a clear, easy-to-understand prediction.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#analyzer" class="button button-primary">
+            Analyze an email <span>↗</span>
+          </a>
+          <a href="#how-it-works" class="button button-secondary">
+            Discover how it works
+          </a>
+        </div>
+
+        <div class="hero-proof">
+          <div class="avatar-stack" aria-hidden="true">
+            <span>M</span><span>AI</span><span>✦</span>
+          </div>
+          <div>
+            <strong>Simple. Fast. ML-powered.</strong>
+            <p>Designed for a clearer inbox.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative product preview -->
+      <div class="hero-visual">
+        <div class="visual-orbit orbit-one"></div>
+        <div class="visual-orbit orbit-two"></div>
+
+        <div class="floating-chip chip-top">
+          <span class="chip-icon violet">✳</span>
+          <span><strong>Smart analysis</strong><small>Text-based detection</small></span>
+        </div>
+
+        <div class="preview-card glass-card">
+          <div class="preview-top">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span class="preview-label">MAILGUARD / PREVIEW</span>
+          </div>
+
+          <div class="preview-envelope">
+            <div class="envelope-icon">
+              <svg viewBox="0 0 64 64" aria-hidden="true">
+                <rect x="8" y="15" width="48" height="34" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                <path d="m11 20 21 16 21-16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="mini-badge">EMAIL CHECK</span>
+          </div>
+
+          <div class="preview-line long"></div>
+          <div class="preview-line medium"></div>
+          <div class="preview-line short"></div>
+
+          <div class="preview-divider"></div>
+
+          <div class="preview-status">
+            <span class="status-icon">✓</span>
+            <div>
+              <strong>Analysis, simplified.</strong>
+              <p>Prediction and probability</p>
+            </div>
+            <span class="status-arrow">↗</span>
+          </div>
+        </div>
+
+        <div class="floating-chip chip-bottom">
+          <span class="chip-icon green">✓</span>
+          <span><strong>Clear results</strong><small>Spam or not spam</small></span>
+        </div>
+
+        <div class="sparkle sparkle-one">✳</div>
+        <div class="sparkle sparkle-two">✦</div>
+      </div>
+    </section>
+
+    <!-- Small feature strip -->
+    <section class="feature-strip section-wrap" aria-label="Product features">
+      <div class="feature-item">
+        <span class="feature-symbol">✳</span>
+        <div><strong>Machine learning</strong><p>Fine-tuned Transformer (DistilBERT)</p></div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-symbol">⌁</span>
+        <div><strong>Quick analysis</strong><p>Submit and get a prediction</p></div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-symbol">◈</span>
+        <div><strong>Easy to understand</strong><p>Readable prediction results</p></div>
+      </div>
+    </section>
+
+    <!-- Analyzer -->
+    <section class="analyzer-section section-wrap" id="analyzer">
+      <div class="section-heading">
+        <span class="section-kicker">THE EMAIL CHECKER</span>
+        <h2>Let's take a <span class="gradient-text">closer look.</span></h2>
+        <p>Enter the subject and message below. MailGuard AI will analyze the text using its trained model.</p>
+      </div>
+
+      <div class="analyzer-layout">
+        <div class="form-card glass-card">
+          <div class="card-heading">
+            <div>
+              <span class="card-overline">NEW ANALYSIS</span>
+              <h3>Email details</h3>
+            </div>
+            <span class="live-pill"><span></span> Ready to check</span>
+          </div>
+
+          <form id="spamForm">
+            <div class="field-group">
+              <label for="subject">Email subject <span>OPTIONAL</span></label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="e.g. Congratulations! You've won a prize"
+                maxlength="500"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="field-group">
+              <div class="label-row">
+                <label for="message">Email message <span class="required-mark">*</span></label>
+                <span class="field-hint">Paste the email content</span>
+              </div>
+              <textarea
+                id="message"
+                name="message"
+                rows="7"
+                maxlength="20000"
+                placeholder="Paste your email message here..."
+                required
+              ></textarea>
+              <div class="textarea-footer">
+                <span class="privacy-note"><span>◇</span> Analyze text you trust and have permission to use.</span>
+                <span id="charCount">0 / 20,000</span>
+              </div>
+            </div>
+
+            <div id="formError" class="form-error" role="alert" hidden></div>
+
+            <button type="submit" id="analyzeBtn" class="button button-primary analyze-button">
+              <span id="buttonText">Analyze email</span>
+              <span id="buttonIcon">↗</span>
+            </button>
+
+            <button type="button" id="clearBtn" class="clear-button">Clear all fields</button>
+          </form>
+        </div>
+
+        <div class="result-card glass-card" aria-live="polite">
+          <div class="result-card-top">
+            <div>
+              <span class="card-overline">ANALYSIS REPORT</span>
+              <h3>Your results</h3>
+            </div>
+            <span class="report-icon">✳</span>
+          </div>
+
+          <div id="emptyState" class="result-state empty-state">
+            <div class="empty-illustration">
+              <div class="empty-orbit"></div>
+              <div class="empty-envelope">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="8" y="15" width="48" height="34" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                  <path d="m11 20 21 16 21-16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <h4>Nothing to report. Yet.</h4>
+            <p>Your results will appear here once you analyze an email.</p>
+            <div class="result-placeholder-row"><span></span><span></span></div>
+            <div class="result-placeholder-row short-placeholder"><span></span><span></span></div>
+          </div>
+
+          <div id="loadingState" class="result-state loading-state" hidden>
+            <div class="loader-ring"></div>
+            <h4>Reading between the lines...</h4>
+            <p>Your email is being analyzed by the machine-learning model.</p>
+            <div class="loading-track"><span></span></div>
+          </div>
+
+          <div id="resultState" class="result-state final-result" hidden>
+            <div class="result-status-icon" id="resultIcon">✓</div>
+            <span class="result-overline">MODEL PREDICTION</span>
+            <h4 id="resultTitle">Not Spam</h4>
+            <p id="resultDescription">The model classified this email as not spam.</p>
+
+            <div class="probability-box">
+              <div class="probability-header">
+                <span>Spam probability</span>
+                <strong id="probabilityValue">0%</strong>
+              </div>
+              <div class="probability-track">
+                <div id="probabilityBar" class="probability-fill"></div>
+              </div>
+              <div class="probability-scale"><span>Lower</span><span>Higher</span></div>
+            </div>
+
+            <div class="result-disclaimer">
+              <span>ⓘ</span>
+              <p>This is a machine-learning prediction, not a guarantee. Review suspicious links and requests carefully.</p>
+            </div>
+
+            <button type="button" id="resetResult" class="button button-secondary result-reset">Analyze another email</button>
+          </div>
+
+          <div class="result-footer">
+            <span><i></i> <span id="apiStatus">Checking model status...</span></span>
+            <span>POWERED BY ML</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="workflow-section section-wrap" id="how-it-works">
+      <div class="section-heading">
+        <span class="section-kicker">BEHIND THE SCENES</span>
+        <h2>Three steps. <span class="gradient-text">One clearer view.</span></h2>
+        <p>A straightforward workflow powered by a text-classification pipeline.</p>
+      </div>
+
+      <div class="workflow-grid">
+        <article class="workflow-card">
+          <span class="step-number">01</span>
+          <div class="workflow-icon icon-lilac">↳</div>
+          <h3>Bring your email</h3>
+          <p>Enter an email subject and message. The text is sent to the local Flask prediction endpoint.</p>
+          <span class="workflow-tag">INPUT</span>
+        </article>
+
+        <article class="workflow-card featured-workflow">
+          <span class="step-number">02</span>
+          <div class="workflow-icon icon-blue">✳</div>
+          <h3>Let the model read</h3>
+          <p>The fine-tuned DistilBERT model analyzes contextual language patterns in the email text and predicts whether it is SPAM or NOT SPAM.</p>
+          <span class="workflow-tag">PROCESSING</span>
+        </article>
+
+        <article class="workflow-card">
+          <span class="step-number">03</span>
+          <div class="workflow-icon icon-mint">✓</div>
+          <h3>Understand the result</h3>
+          <p>See the predicted category and the model's estimated spam probability in a simple report.</p>
+          <span class="workflow-tag">OUTPUT</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about-section section-wrap" id="about">
+      <div class="about-card glass-card">
+        <div class="about-left">
+          <span class="section-kicker">A LITTLE ABOUT THE DEVELOPER</span>
+          <div class="profile-avatar">
+  <img src="/dev_photo.jpeg" alt="Sagar Vishwakarma" />
+  <span></span>
+</div>
+          <h2>Hey, I'm <span class="gradient-text">Sagar.</span></h2>
+          <p class="about-role">AI & ML Student · Developer · Curious Builder</p>
+          <p class="about-description">
+            I'm a Computer Science student interested in machine learning,
+            Python development, data science, and creating thoughtful web experiences.
+            MailGuard AI is part of my journey in turning ML concepts into useful applications.
+          </p>
+          <a class="button button-primary" href="https://portfolio-profile-rouge.vercel.app/" target="_blank" rel="noopener noreferrer">
+            View my portfolio <span>↗</span>
+          </a>
+        </div>
+
+        <div class="about-right">
+          <div class="about-detail">
+            <span class="detail-icon">⌂</span>
+            <div><span>EDUCATION</span><strong>KIET Deemed to be University</strong><p>Ghaziabad, Uttar Pradesh</p></div>
+          </div>
+          <div class="about-detail">
+            <span class="detail-icon">⌘</span>
+            <div><span>PROGRAM</span><strong>B.Tech — CSE (AI & ML)</strong><p>Expected graduation: 2029</p></div>
+          </div>
+          <div class="skills-block">
+            <span class="skills-title">THINGS I WORK WITH</span>
+            <div class="skill-tags">
+              <span>Python</span><span>C++</span><span>Machine Learning</span>
+              <span>Pandas</span><span>NumPy</span><span>HTML & CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/sagar-vishwarkarma1900/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://leetcode.com/u/vishwarkarmasagar/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project details -->
+    <section class="project-section section-wrap" id="project">
+      <div class="project-copy">
+        <span class="section-kicker">THE PROJECT</span>
+        <h2>Built with curiosity.<br /><span class="gradient-text">Powered by learning.</span></h2>
+        <p>
+          MailGuard AI combines a scikit-learn text-classification pipeline
+          with a lightweight Flask API and a responsive frontend.
+          The goal is to make an ML prediction easy to explore and understand.
+        </p>
+        <div class="project-tech">
+          <span>Python</span><span>Scikit-learn</span><span>TF-IDF</span><span>Flask</span><span>JavaScript</span>
+        </div>
+      </div>
+      <div class="project-visual glass-card">
+        <div class="code-window-top"><span></span><span></span><span></span><p>mailguard.py</p></div>
+        <div class="code-lines">
+          <p><span class="code-muted">01</span> <span class="code-purple">from</span> sklearn.pipeline <span class="code-purple">import</span> Pipeline</p>
+          <p><span class="code-muted">02</span> <span class="code-purple">from</span> sklearn.feature_extraction.text <span class="code-purple">import</span> TfidfVectorizer</p>
+          <p><span class="code-muted">03</span> <span class="code-purple">from</span> sklearn.naive_bayes <span class="code-purple">import</span> MultinomialNB</p>
+          <p class="code-gap"><span class="code-muted">04</span> </p>
+          <p><span class="code-muted">05</span> model = Pipeline([</p>
+          <p><span class="code-muted">06</span> &nbsp; (<span class="code-green">'tfidf'</span>, TfidfVectorizer()),</p>
+          <p><span class="code-muted">07</span> &nbsp; (<span class="code-green">'classifier'</span>, MultinomialNB())</p>
+          <p><span class="code-muted">08</span> ])</p>
+          <p class="code-gap"><span class="code-muted">09</span> </p>
+          <p><span class="code-muted">10</span> <span class="code-comment"># Learn from text. Predict with care.</span></p>
+        </div>
+        <div class="code-window-footer"><span class="code-live-dot"></span> ML PIPELINE <span>·</span> FLASK API</div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section section-wrap" id="contact">
+      <div class="contact-card">
+        <div class="contact-decoration decoration-one"></div>
+        <div class="contact-decoration decoration-two"></div>
+        <span class="section-kicker">LET'S CONNECT</span>
+        <h2>Good ideas start<br />with a <span>conversation.</span></h2>
+        <p>Explore my work, connect with me, or follow along as I build more projects.</p>
+        <div class="contact-actions">
+          <a href="https://www.linkedin.com/in/sagar-vishwarkarma1900/" target="_blank" rel="noopener noreferrer" class="button contact-button">Connect on LinkedIn ↗</a>
+          <a href="https://portfolio-profile-rouge.vercel.app/" target="_blank" rel="noopener noreferrer" class="button contact-outline">Explore portfolio ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap">
+    <a href="#home" class="brand footer-brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 3.5 33 8v10.1c0 8.2-5.4 14.1-13 18.4C12.4 32.2 7 26.3 7 18.1V8L20 3.5Z" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="m12.5 15 7.5 6 7.5-6M13 25V15h14v10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">MailGuard<span> AI</span></span>
+    </a>
+    <p>Designed & built by <strong>Sagar Vishwakarma</strong></p>
+    <a href="#home" class="back-top">Back to top ↑</a>
+    <div class="footer-bottom">
+      <span>© <span id="currentYear"></span> MailGuard AI</span>
+      <span>Made for learning. Built with care.</span>
+    </div>
+  </footer>
+</body>
+</html>

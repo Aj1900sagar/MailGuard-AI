@@ -1,0 +1,51 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+
+  <!-- Shield -->
+  <path d="M32 8 L51 15 V29 C51 41 43 50 32 56
+           C21 50 13 41 13 29 V15 Z"
+        fill="url(#shield)"/>
+
+  <!-- Email envelope -->
+  <rect x="20" y="23" width="24" height="17" rx="3"
+        fill="#052e24"/>
+
+  <path d="M21 25 L32 34 L43 25"
+        fill="none" stroke="#6ee7b7"
+        stroke-width="2.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- AI circuit nodes -->
+  <g stroke="#ecfdf5" stroke-width="2"
+     stroke-linecap="round">
+    <path d="M32 16 V20 M17 32 H20 M44 32 H47"/>
+  </g>
+
+  <g fill="#ecfdf5">
+    <circle cx="32" cy="15" r="2"/>
+    <circle cx="16" cy="32" r="2"/>
+    <circle cx="48" cy="32" r="2"/>
+  </g>
+
+  <!-- Security check -->
+  <circle cx="44" cy="43" r="8" fill="#f8fafc"/>
+  <path d="M40.5 43 L43 45.5 L47.5 40.5"
+        fill="none" stroke="#059669"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
