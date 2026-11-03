@@ -1,55 +1,25 @@
+
 from pathlib import Path
 
-import torch
+import joblib
 from flask import Flask, jsonify, request, send_from_directory
-from transformers import (
-    AutoTokenizer,
-    AutoModelForSequenceClassification,
-)
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_DIR = BASE_DIR / "model" / "distilbert_spam_model"
+MODEL_PATH = BASE_DIR / "model" / "spam_classifier.pkl"
 FRONTEND_DIR = BASE_DIR / "frontend"
 
 app = Flask(__name__)
 
-# DistilBERT runs on GPU if available, otherwise CPU
-DEVICE = torch.device(
-    "cuda" if torch.cuda.is_available() else "cpu"
-)
+# Load the lightweight ML pipeline once at startup
+model = joblib.load(MODEL_PATH)
 
-# Load the fine-tuned model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained(str(MODEL_DIR))
+# Identify the spam class index
+classes = [str(label).lower() for label in model.classes_]
 
-model = AutoModelForSequenceClassification.from_pretrained(
-    str(MODEL_DIR)
-)
+if "spam" not in classes:
+    raise ValueError("Spam class not found in the trained model.")
 
-model.to(DEVICE)
-model.eval()
-
-
-def get_spam_class_index():
-    """Find the spam class from the saved model configuration."""
-    label2id = {
-        str(label).lower(): int(index)
-        for label, index in model.config.label2id.items()
-    }
-
-    if "spam" in label2id:
-        return label2id["spam"]
-
-    id2label = model.config.id2label
-
-    for index, label in id2label.items():
-        if str(label).lower() == "spam":
-            return int(index)
-
-    # This model was trained with 0 = ham and 1 = spam.
-    return 1
-
-
-SPAM_CLASS_INDEX = get_spam_class_index()
+SPAM_CLASS_INDEX = classes.index("spam")
 
 
 @app.route("/", methods=["GET"])
@@ -62,8 +32,8 @@ def health():
     return jsonify({
         "status": "ok",
         "model_loaded": model is not None,
-        "model_name": "DistilBERT Spam Classifier",
-        "device": str(DEVICE),
+        "model_name": "TF-IDF + Multinomial Naive Bayes",
+        "device": "cpu",
     })
 
 
@@ -97,42 +67,21 @@ def predict():
             "error": "Email text must be 20,000 characters or fewer."
         }), 413
 
-    # Keep the subject and message format consistent with the app.
     email_text = f"Subject: {subject}\n\nMessage: {message}"
 
     try:
-        inputs = tokenizer(
-            email_text,
-            return_tensors="pt",
-            truncation=True,
-            max_length=256,
-        )
+        prediction = str(model.predict([email_text])[0]).lower()
 
-        inputs = {
-            key: value.to(DEVICE)
-            for key, value in inputs.items()
-        }
+        probabilities = model.predict_proba([email_text])[0]
+        spam_probability = float(probabilities[SPAM_CLASS_INDEX])
 
-        with torch.inference_mode():
-            outputs = model(**inputs)
-            probabilities = torch.softmax(
-                outputs.logits, dim=-1
-            )[0]
-
-        spam_probability = float(
-            probabilities[SPAM_CLASS_INDEX].item()
-        )
-
-        is_spam = spam_probability >= 0.5
-        prediction = "spam" if is_spam else "ham"
+        is_spam = prediction == "spam"
 
         return jsonify({
             "prediction": prediction,
             "label": "SPAM" if is_spam else "NOT SPAM",
             "is_spam": is_spam,
-            "spam_probability": round(
-                spam_probability * 100, 2
-            ),
+            "spam_probability": round(spam_probability * 100, 2),
         })
 
     except Exception:
